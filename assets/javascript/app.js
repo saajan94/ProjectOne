@@ -29,3 +29,13 @@ homescreen.html
 
 -Need a sign out fuction that pushes them back to Index.html
 */
+
+$(function() {
+
+  // page is now ready, initialize the calendar...
+
+  $('#calendar').fullCalendar({
+    // put your options and callbacks here
+  })
+
+});
