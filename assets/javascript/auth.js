@@ -184,6 +184,7 @@ $('#nocalendar').attr('id', 'calendar');
           } else {
               // User is signed out.
               // [START_EXCLUDE]
+              document.getElementById("quickstart-verify-email").style.display = "none";
               document.getElementById('quickstart-sign-in-status').textContent = 'Signed out';
               document.getElementById('quickstart-sign-in').textContent = 'Sign in';
               $( "#calendar" ).empty();
