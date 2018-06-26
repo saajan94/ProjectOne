@@ -30,12 +30,12 @@ homescreen.html
 -Need a sign out fuction that pushes them back to Index.html
 */
 
-$(function() {
+// $(function calendardraw() {
 
-  // page is now ready, initialize the calendar...
+//   // page is now ready, initialize the calendar...
 
-  $('#calendar').fullCalendar({
-    // put your options and callbacks here
-  })
+//   $('#calendar').fullCalendar({
+//     // put your options and callbacks here
+//   })
 
-});
+// });
