@@ -166,7 +166,23 @@
                   document.getElementById("quickstart-sign-up").style.display = "none";
                   document.getElementById("quickstart-verify-email").style.display = "none";
                   $(function calendardraw() {
+
 $('#nocalendar').attr('id', 'calendar');
+
+$('#calendar').fullCalendar({
+  eventClick: function(calEvent, jsEvent, view) {
+
+    alert('Event: ' + calEvent.title);
+    alert('Coordinates: ' + jsEvent.pageX + ',' + jsEvent.pageY);
+    alert('View: ' + view.name);
+
+    // change the border color just for fun
+    $(this).css('border-color', 'red');
+
+  }
+});
+
+
   // page is now ready, initialize the calendar...
 
   $('#calendar').fullCalendar({
@@ -184,6 +200,8 @@ $('#nocalendar').attr('id', 'calendar');
           } else {
               // User is signed out.
               // [START_EXCLUDE]
+              document.getElementById("email").style.display = "inline";
+              document.getElementById("password").style.display = "inline";
               document.getElementById("quickstart-verify-email").style.display = "none";
               document.getElementById('quickstart-sign-in-status').textContent = 'Signed out';
               document.getElementById('quickstart-sign-in').textContent = 'Sign in';
