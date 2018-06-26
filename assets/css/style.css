@@ -12,6 +12,9 @@ li a {
 .mdl-card {
   overflow: visible;
 }
+.mdl-card__title-text {
+margin-left: 235px;
+}
 .grecaptcha-logo {
   background-color: white;
 }
