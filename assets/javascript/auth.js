@@ -166,10 +166,14 @@
               document.getElementById("loginp").style.display = "inline-block";
               document.getElementById("quickstart-sign-up").style.display = "none";
               document.getElementById("quickstart-verify-email").style.display = "none";
+              document.getElementById("weatherstuff").style.display = "block";
+              // $("nav").hide(0);
 
 
               // [START_EXCLUDE]
               document.getElementById("calendarbtn").style.display = "inline-block";
+              document.getElementById("employeesbtn").style.display = "inline-block";
+              document.getElementById("hiresbtn").style.display = "inline-block";
               document.getElementById('quickstart-sign-in-status').textContent = "Welcome " + email;
               document.getElementById('quickstart-sign-in').textContent = 'Sign out';
 
@@ -216,6 +220,11 @@
               document.getElementById("password").style.display = "inline";
               document.getElementById("quickstart-verify-email").style.display = "none";
               document.getElementById("calendarbtn").style.display = "none";
+              document.getElementById("weatherstuff").style.display = "none";
+              document.getElementById("employeesbtn").style.display = "none";
+             document.getElementById("hiresbtn").style.display = "none";
+             document.getElementById("quickstart-sign-up").style.display = "inline-block";
+             document.getElementById("quickstart-password-reset").style.display = "inline-block";
 
 
 
