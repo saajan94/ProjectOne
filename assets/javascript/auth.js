@@ -9,6 +9,11 @@
   firebase.initializeApp(config);
 
 
+  var database = firebase.database();
+
+
+
+
   /**
    * Handles the sign in button press.
    */
@@ -56,11 +61,11 @@
       var email = document.getElementById('email').value;
       var password = document.getElementById('password').value;
       if (email.length < 4) {
-          alert('Please enter an email address.');
+          alert('Please enter a valid email address.');
           return;
       }
       if (password.length < 4) {
-          alert('Please enter a password.');
+          alert('Please enter a password longer than 4 characters.');
           return;
       }
       // Sign in with email and pass.
@@ -71,7 +76,7 @@
           var errorMessage = error.message;
           // [START_EXCLUDE]
           if (errorCode == 'auth/weak-password') {
-              alert('The password is too weak my dude.');
+              alert('Please input a stronger password');
           } else {
               alert(errorMessage);
           }
@@ -152,50 +157,57 @@
               var isAnonymous = user.isAnonymous;
               var uid = user.uid;
               var providerData = user.providerData;
+              console.log(user);
+
+              document.getElementById('quickstart-verify-email').disabled = true;
+              document.getElementById("quickstart-password-reset").style.display = "none";
+              document.getElementById("email").style.display = "none";
+              document.getElementById("password").style.display = "none";
+              document.getElementById("loginp").style.display = "inline-block";
+              document.getElementById("quickstart-sign-up").style.display = "none";
+              document.getElementById("quickstart-verify-email").style.display = "none";
+
+
               // [START_EXCLUDE]
-              document.getElementById('quickstart-sign-in-status').textContent = 'Signed in right now';
+              document.getElementById("calendarbtn").style.display = "inline-block";
+              document.getElementById('quickstart-sign-in-status').textContent = "Welcome " + email;
               document.getElementById('quickstart-sign-in').textContent = 'Sign out';
 
               // document.getElementById('quickstart-account-details').textContent = JSON.stringify(user, null, '  ');
-              if (!emailVerified) {
-                  document.getElementById('quickstart-verify-email').disabled = true;
-                  document.getElementById('quickstart-password-reset').disabled = true;
-                  document.getElementById("email").style.display = "none";
-                  document.getElementById("password").style.display = "none";
-                  document.getElementById("loginp").style.display = "none";
-                  document.getElementById("quickstart-sign-up").style.display = "none";
-                  document.getElementById("quickstart-verify-email").style.display = "none";
-                  $(function calendardraw() {
-
-$('#nocalendar').attr('id', 'calendar');
-
-$('#calendar').fullCalendar({
-  eventClick: function(calEvent, jsEvent, view) {
-
-    alert('Event: ' + calEvent.title);
-    alert('Coordinates: ' + jsEvent.pageX + ',' + jsEvent.pageY);
-    alert('View: ' + view.name);
-
-    // change the border color just for fun
-    $(this).css('border-color', 'red');
-
-  }
-});
-
-
-  // page is now ready, initialize the calendar...
-
-  $('#calendar').fullCalendar({
-    // put your options and callbacks here
-  })
-
-});
-                  
+              // if (!emailVerified) {
 
 
 
 
-              }
+              //     //                   $(function calendardraw() {
+
+              //     // $('#nocalendar').attr('id', 'calendar');
+
+              //     // $('#calendar').fullCalendar({
+              //     //   events: [
+              //     //     {
+              //     //       title  : 'event1',
+              //     //       start  : '2018-06-25'
+              //     //     },
+              //     //     {
+              //     //       title  : 'event2',
+              //     //       start  : '2018-06-27',
+              //     //       end    : '2018-06-29'
+              //     //     },
+              //     //     {
+              //     //       title  : 'event3',
+              //     //       start  : '2018-06-09 12:30:00',
+              //     //       allDay : false // will make the time show
+              //     //     }
+              //     //   ]
+              //     // });
+
+              //     // });
+
+              //     // $("body").html("new content");
+
+
+              // }
               // [END_EXCLUDE]
           } else {
               // User is signed out.
@@ -203,9 +215,14 @@ $('#calendar').fullCalendar({
               document.getElementById("email").style.display = "inline";
               document.getElementById("password").style.display = "inline";
               document.getElementById("quickstart-verify-email").style.display = "none";
+              document.getElementById("calendarbtn").style.display = "none";
+
+
+
               document.getElementById('quickstart-sign-in-status').textContent = 'Signed out';
               document.getElementById('quickstart-sign-in').textContent = 'Sign in';
-              $( "#calendar" ).empty();
+              document.getElementById('quickstart-sign-in-status').textContent = "";
+              $("#calendar").empty();
               $('#calendar').attr('id', 'nocalendar');
               // [END_EXCLUDE]
           }
