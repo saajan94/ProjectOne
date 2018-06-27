@@ -34,6 +34,42 @@ li a {
   text-decoration: underline;
   color: #0288d1;
 }
+form {
+  display: inline-block;
+}
+
+
+/* saaj Global CSS */
+
+/*body {
+     background: linear-gradient(to right,#32C487 ,#6C337D ); 
+    height: 100%;
+}*/
+
+/* Homepage CSS */
+
+#mainpageImage {
+    width: 100%;
+    display: block;
+    margin-top: 90px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Calendar CSS */
+
+#calendar {
+    max-width: 900px;
+    margin: 40px auto;
+}
+
+
+
+
+
+
+
+
 .mdl-card {
   overflow: visible;
 }
@@ -58,7 +94,7 @@ margin-left: 235px;
   font-weight: bold;
 }
 pre {
-  overflow-x: scroll;
+  
   line-height: 18px;
 }
 code {
