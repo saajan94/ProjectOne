@@ -38,6 +38,23 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="homepage.html">Mangenda</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+
+    <meta charset="UTF-8">
+    <title>Homepage</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="homepage.html">Mangenda</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+            aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
@@ -67,6 +84,7 @@
                             <tr>
                                 <th scope="col">Employee Name</th>
                                 <th scope="col">Role</th>
+                                <th scope="col">Job Title</th>
                                 <th scope="col">Start Date</th>
                                 <th scope="col">Months Worked</th>
                                 <th scope="col">Monthly Rate ($)</th>
@@ -74,6 +92,7 @@
                             </tr>
                         </thead>
                         <tbody>
+
                         </tbody>
                     </table>
                     <div id="employee" class="panel-body" id="search-results"></div>
@@ -82,6 +101,13 @@
         </div>
         <button type="button" class="btn btn-primary" id="addEmployee" data-toggle="modal" data-target="#employeeModal">Add Employee</button>
     </div>
+
+        <button type="button" class="btn btn-primary" id="addEmployee" data-toggle="modal" data-target="#employeeModal">Add Employee</button>
+
+    </div>
+
+
+
     <div class="modal fade" id="employeeModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -105,6 +131,8 @@
                                         <div class="form-group">
                                             <label for="search">Role</label>
                                             <input type="text" class="form-control" id="role-input">
+                                            <label for="search">Job Title</label>
+                                            <input type="text" class="form-control" id="title-input">
                                         </div>
                                         <div class="form-group">
                                             <label for="startYear">Start Date</label>
@@ -115,8 +143,8 @@
                                             <input type="text" class="form-control" id="monthlyRate-input">
                                         </div>
                                         <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                                             <button type="button" class="btn btn-primary">Save changes</button>
+                                            <button type="button" id="saveEmployee" class="btn btn-primary">Save changes</button>
                                         </div>
                                     </form>
                                 </div>
@@ -127,8 +155,18 @@
             </div>
         </div>
     </div>
+
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/5.1.0/firebase.js"></script>
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
+        crossorigin="anonymous"></script>
+
+    <script src="assets/javascript/employees.js"></script>
 </body>
 
 </html>
