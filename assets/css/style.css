@@ -1,3 +1,4 @@
+
 /* Global CSS */
 
 body {
@@ -20,4 +21,70 @@ body {
 #calendar {
     max-width: 900px;
     margin: 40px auto;
+}
+=======
+html, body {
+  font-family: 'Roboto', 'Helvetica', sans-serif;
+  background-color: #f5f5f5;
+}
+a {
+  text-decoration: none;
+}
+li a {
+  text-decoration: underline;
+  color: #0288d1;
+}
+.mdl-card {
+  overflow: visible;
+}
+.mdl-card__title-text {
+margin-left: 235px;
+}
+.grecaptcha-logo {
+  background-color: white;
+}
+.mdl-grid {
+  max-width: 1024px;
+  margin: auto;
+}
+.mdl-layout__header-row {
+  padding: 0;
+}
+.quickstart-user-details-container, .user-details-container {
+  margin-top: 20px;
+  line-height: 25px;
+}
+#quickstart-sign-in-status, #sign-in-status {
+  font-weight: bold;
+}
+pre {
+  overflow-x: scroll;
+  line-height: 18px;
+}
+code {
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+h3 {
+  background: url('https://d30y9cdsu7xlg0.cloudfront.net/png/174505-200.png') no-repeat;
+  background-size: 40px;
+  padding-left: 50px;
+  color: white;
+  margin-left: 235px;
+}
+#verification-code-form {
+  display:none;
+}
+#recaptcha-container {
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+#verify-code-button, #cancel-verify-code-button {
+  margin-left: 20px;
+}
+#sign-out-button {
+  display: none;
+}
+#sign-in-card {
+  z-index: 2;
 }
