@@ -1,0 +1,17 @@
+.card {
+  width: 350px;
+  height: 350px;
+  /* max-height: 300px; */
+  color: #FFF;
+  
+}
+
+.card-body{
+  overflow-y: hidden;
+  overflow-x: none;
+  padding: 0 1.25rem;
+}
+
+.sadFace {
+  font-size: 4.0 em;
+}
