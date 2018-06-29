@@ -1,6 +1,8 @@
 
 /* Global CSS */
-
+nav {
+  display: none;
+}
 body {
     height: 100%;
 }
@@ -61,19 +63,17 @@ form {
     max-width: 900px;
     margin: 40px auto;
 }
-
-
-
-
-
-
-
-
+.weatherstuff {
+  display: block;
+  text-align: center;
+  color:black;
+}
+#hi{
+  text-align: center;
+}
 .mdl-card {
   overflow: visible;
-}
-.mdl-card__title-text {
-margin-left: 235px;
+  text-align: center;
 }
 .grecaptcha-logo {
   background-color: white;
@@ -91,6 +91,9 @@ margin-left: 235px;
 }
 #quickstart-sign-in-status, #sign-in-status {
   font-weight: bold;
+  color:black;
+  display: block;
+  text-align: center;
 }
 pre {
   
