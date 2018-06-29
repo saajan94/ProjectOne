@@ -26,12 +26,7 @@ function skillSearch() {
         form.append(formGroup)
 
         //input for skill
-        var input = $("<input>")
-        input.attr({
-            class: "form-control ml-2 mr-2",
-            id: "query",
-            type: "text"
-        })
+        var input = $("<input>").attr({class: "form-control ml-2 mr-2",id: "query",type: "text"})
         var formGroup = $("<div>").attr("class", "form group")
         formGroup.append(input)
         form.append(formGroup)

@@ -29,17 +29,8 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
-                        aria-expanded="false">
-                        Hiring
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" onclick="skillSearch()">Skill Search</a>
-                        <a class="dropdown-item" onClick="postAJob()">Post a job</a>
-                        <!-- <div class="dropdown-divider"></div> -->
-                        <a class="dropdown-item" href="#">View Applicants</a>
-                    </div>
+                <li class="nav-item">
+                    <a class="nav-link" href="hiring.html">Hiring</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="employees.html">Employees</a>
@@ -51,6 +42,11 @@
             </ul>
         </div>
     </nav>
+    <div class="container1 text-center">
+        <button class="btn btn-primary" onClick="skillSearch()">Skill Search</button>
+        <button class="btn btn-secondary" onclick="postAJob()" >Post a Job</button>
+        <button class="btn btn-danger" >View Applicants</button>
+    </div> 
     <div class="container"></div>   
 </body>
 

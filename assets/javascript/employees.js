@@ -29,6 +29,13 @@ $(document).ready(function() {
             startDate: startDate,
             monthlyRate: monthlyRate
         })
+
+        $("#name-input").val("");
+        $("#title-input").val("");
+        $("#startDate-input").val("");
+        $("#monthlyRate-input").val("");
+
+        $('#employeeModal').modal('hide');
     })
 
     database.ref().on("child_added", function(snapshot) {
@@ -37,14 +44,18 @@ $(document).ready(function() {
         var startDate = snapshot.val().startDate;
         var monthlyRate = snapshot.val().monthlyRate;
 
+        // Convert startDate to be read by MomentJS
         var convertedMonths = moment(startDate, "MM/DD/YYYY")
         console.log(convertedMonths);
 
+        // Difference between current date and start date
         var monthsWorked = moment().diff(moment(convertedMonths), "months")
         console.log(monthsWorked);
 
+        // Calculation for total billed
         var totalBilled = monthlyRate * monthsWorked
 
+        // Append employee table with new employee
         $("#new-employee").append("<tr><td>" + employeeName + "</td><td>" + employeeTitle + "</td><td>" + startDate + "</td><td>" + monthsWorked + "</td><td>" + monthlyRate + "</td><td>" + totalBilled +"</td></tr>")
     })
 })
