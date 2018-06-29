@@ -12,7 +12,7 @@
 
 
 
-    
+
     <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css" />
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -29,7 +29,7 @@
     <script src="assets/javascript/app.js"></script>
     <script src="assets/javascript/auth.js"></script>
     <script src="assets/javascript/weather.js"></script>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light navstuff">
         <a class="navbar-brand" href="homepage.html">Mangenda</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
             aria-label="Toggle navigation">
@@ -38,7 +38,7 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="hiring.">Hiring</a>
+                    <a class="nav-link" href="hiring.html">Hiring</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="employees.html">Employees</a>
@@ -83,18 +83,18 @@
                             <button class="btn btn-primary" id="quickstart-sign-up" name="signup">Sign Up</button>
                             <button class="mdl-button mdl-js-button mdl-button--raised" disabled id="quickstart-verify-email" name="verify-email">Send Email Verification</button>
                             <button class="btn btn-primary" id="quickstart-password-reset" name="verify-email">Send Password Reset Email</button>
-                            <form>
+                            <form class="formstuff">
                                 <input type="button" id="employeesbtn" class="btn btn-primary" value="Employees" onclick="window.location.href='employees.html'" />
                             </form>
-                            <form>
+                            <form class="formstuff">
                                 <input type="button" id="calendarbtn" class="btn btn-primary" value="Calendar" onclick="window.location.href='calendar.html'" />
                             </form>
-                            <form>
+                            <form class="formstuff">
                                 <input type="button" id="hiresbtn" class="btn btn-primary" value="Search New Hires" onclick="window.location.href='hiring.html'" />
                             </form>
                             <!-- Container where we'll display the user details -->
                             <div class="quickstart-user-details-container">
-                                <pre><code id="nocalendar"></code></pre>
+                                <pre class="prestuff"><code class="codestuff" id="nocalendar"></code></pre>
         </main>
         </div>
         <!--Footer Area-->
