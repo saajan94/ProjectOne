@@ -2,7 +2,6 @@
 /* Global CSS */
 
 body {
-    /* background: linear-gradient(to right,#32C487 ,#6C337D ); */
     height: 100%;
 }
 
@@ -31,7 +30,7 @@ a {
   text-decoration: none;
 }
 li a {
-  text-decoration: underline;
+  /* text-decoration: underline; */
   color: #0288d1;
 }
 form {
@@ -126,6 +125,7 @@ h3 {
 }
 
 
+/* Hiring css */
 .card {
   width: 350px;
   height: 350px;
