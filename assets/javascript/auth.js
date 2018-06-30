@@ -167,6 +167,7 @@
               document.getElementById("quickstart-sign-up").style.display = "none";
               document.getElementById("quickstart-verify-email").style.display = "none";
               document.getElementById("weatherstuff").style.display = "block";
+              $('.navstuff').css('display', 'block');
               // $("nav").hide(0);
 
 
@@ -216,6 +217,8 @@
           } else {
               // User is signed out.
               // [START_EXCLUDE]
+              $( "#email" ).val("");
+              $( "#password" ).val("");
               document.getElementById("email").style.display = "inline";
               document.getElementById("password").style.display = "inline";
               document.getElementById("quickstart-verify-email").style.display = "none";
@@ -231,6 +234,7 @@
               document.getElementById('quickstart-sign-in-status').textContent = 'Signed out';
               document.getElementById('quickstart-sign-in').textContent = 'Sign in';
               document.getElementById('quickstart-sign-in-status').textContent = "";
+              $('.navstuff').css('display', 'none');
               $("#calendar").empty();
               $('#calendar').attr('id', 'nocalendar');
               // [END_EXCLUDE]
