@@ -1,9 +1,7 @@
 
 /* Global CSS */
-
-body {
-    /* background: linear-gradient(to right,#32C487 ,#6C337D ); */
-    height: 100%;
+.navstuff {
+  display: none;
 }
 
 /* Homepage CSS */
@@ -22,6 +20,8 @@ body {
     max-width: 900px;
     margin: 40px auto;
 }
+.formstuff {
+=======
 
 html, body {
   font-family: 'Roboto', 'Helvetica', sans-serif;
@@ -31,7 +31,7 @@ a {
   text-decoration: none;
 }
 li a {
-  text-decoration: underline;
+  /* text-decoration: underline; */
   color: #0288d1;
 }
 form {
@@ -62,19 +62,17 @@ form {
     max-width: 900px;
     margin: 40px auto;
 }
-
-
-
-
-
-
-
-
+.weatherstuff {
+  display: block;
+  text-align: center;
+  color:black;
+}
+#hi{
+  text-align: center;
+}
 .mdl-card {
   overflow: visible;
-}
-.mdl-card__title-text {
-margin-left: 235px;
+  text-align: center;
 }
 .grecaptcha-logo {
   background-color: white;
@@ -92,21 +90,17 @@ margin-left: 235px;
 }
 #quickstart-sign-in-status, #sign-in-status {
   font-weight: bold;
+  color:black;
+  display: block;
+  text-align: center;
 }
-pre {
+.prestuff {
   
   line-height: 18px;
 }
-code {
+.codestuff {
   white-space: pre-wrap;
   word-break: break-all;
-}
-h3 {
-  background: url('https://d30y9cdsu7xlg0.cloudfront.net/png/174505-200.png') no-repeat;
-  background-size: 40px;
-  padding-left: 50px;
-  color: white;
-  margin-left: 235px;
 }
 #verification-code-form {
   display:none;
@@ -123,4 +117,24 @@ h3 {
 }
 #sign-in-card {
   z-index: 2;
+}
+
+
+/* Hiring css */
+.card {
+  width: 350px;
+  height: 350px;
+  /* max-height: 300px; */
+  color: #FFF;
+  
+}
+
+.card-body{
+  overflow-y: hidden;
+  overflow-x: none;
+  padding: 0 1.25rem;
+}
+
+.sadFace {
+  font-size: 4.0 em;
 }
