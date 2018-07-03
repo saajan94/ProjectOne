@@ -10,6 +10,8 @@ var config = {
 firebase.initializeApp(config);
 
 var database = firebase.database();
+
+var employeeCount = 0;
 $(document).ready(function() {
     $("#addEmployee").on("click", function() {
         $("#employeeModal").show()
@@ -23,7 +25,7 @@ $(document).ready(function() {
         var startDate = $("#startDate-input").val().trim();
         var monthlyRate = $("#monthlyRate-input").val().trim();
 
-        database.ref().push({
+        database.ref('/employees').push({
             name: name,
             jobTitle: title,
             startDate: startDate,
@@ -36,9 +38,10 @@ $(document).ready(function() {
         $("#monthlyRate-input").val("");
 
         $('#employeeModal').modal('hide');
+
     })
 
-    database.ref().on("child_added", function(snapshot) {
+    database.ref('/employees').on("child_added", function(snapshot) {
         var employeeName = snapshot.val().name;
         var employeeTitle = snapshot.val().jobTitle;
         var startDate = snapshot.val().startDate;

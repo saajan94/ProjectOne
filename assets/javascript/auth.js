@@ -152,6 +152,7 @@
               // User is signed in.
               var displayName = user.displayName;
               var email = user.email;
+              var employeeCount = user.employeeCount;
               var emailVerified = user.emailVerified;
               var photoURL = user.photoURL;
               var isAnonymous = user.isAnonymous;
@@ -175,6 +176,7 @@
               document.getElementById("employeesbtn").style.display = "inline-block";
               document.getElementById("hiresbtn").style.display = "inline-block";
               document.getElementById('quickstart-sign-in-status').textContent = "Welcome " + email;
+              document.getElementById('employeeCount').textContent = "You have " + employeeCount + "employees!"
               document.getElementById('quickstart-sign-in').textContent = 'Sign out';
 
               // document.getElementById('quickstart-account-details').textContent = JSON.stringify(user, null, '  ');
