@@ -1,4 +1,15 @@
 // $(function () {
+    var config = {
+        apiKey: "AIzaSyDjOICOB9Zfd3_Kun3Hc_x1JNtRNSrV7QI",
+        authDomain: "mangenda-f7411.firebaseapp.com",
+        databaseURL: "https://mangenda-f7411.firebaseio.com",
+        projectId: "mangenda-f7411",
+        storageBucket: "mangenda-f7411.appspot.com",
+        messagingSenderId: "75994685936"
+      };
+      firebase.initializeApp(config);
+      database = firebase.database();
+
 
 var start;
 var noResults = $('<h1 id="noResults" class="text-center display-1"><span class="sadFace">:-(</span><br> No Results Found</h1>')
@@ -61,7 +72,10 @@ function skillSearch() {
         formGroup.append(button)
         form.append(formGroup)
         skillsForm.prepend(form)
-        $(".container").prepend(skillsForm)
+        // $('*[aria-labelledby="skills-tab"]').prepend(skillsForm)
+        $("#skills > .container").prepend((skillsForm))
+
+        
 
     }
     var results = $("<div>").attr("id", "results")
@@ -70,7 +84,7 @@ function skillSearch() {
 
 }
 
-$(document).on("click", "#search", function () {
+$(document).on("click", "#search", function (event) {
     event.preventDefault();
 
     $("#noResults").remove()
@@ -206,7 +220,41 @@ function postAJob() {
     formGroup.append(button, button2)
     form.append(formGroup)
 
-    $(".container").append(form)
+    // $(".container").append(form)
+    $("#post > .container").append(form)
+
+    $('#submit').on('click',function(event){
+        event.preventDefault();
+        
+        //Get input info
+        jobTitle = $('#jobTitle').val().trim();
+        jobDescription = $('#jobDescription').val().trim();
+        requirements = $('#requirements').val().trim();
+        type = $('#type').val().trim();
+        salary = $('#salary').val().trim();
+    
+        //Removed input info 
+        $('#jobTitle').val('');
+        $('#jobDescription').val('');
+        $('#requirements').val('');
+        $('#type').val('');
+        $('#salary').val('');
+        
+    
+        database.ref('/jobs').push({
+            jobTitle: jobTitle,
+            jobDescription: jobDescription,
+            requirements: requirements,
+            type: type,
+            salary: salary,
+                
+            }); 
+        });
+    
 
 }
+
+
+    
+
 // })//End of doc ready

@@ -2,6 +2,9 @@
 <html lang="en">
 
 <head>
+    <script>
+        console.log(user)    
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -9,20 +12,19 @@
         crossorigin="anonymous">
     <!-- <link rel="stylesheet" href="assets/css/paperBoot.css"> -->
     <link rel="stylesheet" href="assets/css/style2.css">
-
-
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
         crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
+        <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
     <script src="assets/javascript/hiring.js"></script>
     <title>Document</title>
+
 </head>
 
 <body>
-
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="homepage.html">Mangenda</a>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="index.html">Mangenda</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
             aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -42,12 +44,35 @@
             </ul>
         </div>
     </nav>
-    <div class="container1 text-center">
-        <button class="btn btn-primary" onClick="skillSearch()">Skill Search</button>
-        <button class="btn btn-secondary" onclick="postAJob()" >Post a Job</button>
-        <button class="btn btn-danger" >View Applicants</button>
-    </div> 
-    <div class="container"></div>   
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item">
+            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Hiring Portal</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#skills" onClick="skillSearch()" role="tab" aria-controls="profile"
+                aria-selected="false">Skill Search <span class="badge badge-secondary">New</span></a> 
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="contact-tab" data-toggle="tab" href="#post" onClick="postAJob()" role="tab" aria-controls="contact"
+                aria-selected="false">Post a Job</a>
+        </li>
+        <li class="nav-item">
+                <a class="nav-link" id="contact-tab" href="jobs.html" target="_blank"role="tab" aria-selected="false">Job Postings</a>
+            </li>
+        <li class="nav-item">
+            <a class="nav-link" id="contact-tab" data-toggle="tab" href="#view" role="tab" aria-selected="false">View Applicants</a>
+        </li>
+    </ul>
+    <div class="tab-content" id="myTabContent">
+        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="hiringHome-tab">home</div>
+        <div class="tab-pane fade" id="skills" role="tabpanel" aria-labelledby="skill-tab">
+            <div class="container mt-3"></div>
+        </div>
+        <div class="tab-pane fade" id="post" role="tabpanel" aria-labelledby="post-tab">
+            <div class="container mt-3"></div>
+        </div>
+        <div class="tab-pane fade" id="view" role="tabpanel" aria-labelledby="viewApplicants-tab">view</div>
+    </div>
 </body>
 
 </html>
