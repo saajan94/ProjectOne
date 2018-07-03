@@ -48,7 +48,7 @@ $(document).ready(function() {
         var monthlyRate = snapshot.val().monthlyRate;
 
         // Convert startDate to be read by MomentJS
-        var convertedMonths = moment(startDate, "MM/DD/YYYY")
+        var convertedMonths = moment(startDate)
         console.log(convertedMonths);
 
         // Difference between current date and start date
