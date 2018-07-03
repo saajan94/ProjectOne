@@ -23,12 +23,13 @@ $(document).ready(function () {
         selectable: true,
         selectHelper: true,
         editable: true,
+        startEditable: true,
         durationEditable: true,
         eventLimit: true,
         eventClick: function (calEvent) {
             alert('Event: ' + calEvent.title);
-            alert('Event: ' + calEvent.start);
-            alert('Event: ' + calEvent.end);
+            alert('Start Date: ' + calEvent.start);
+            alert('End Date: ' + calEvent.end);
         }
 
     });
@@ -42,14 +43,20 @@ $(document).ready(function () {
             var eventTitle = $("#eventTitle-input").val().trim()
             var startDate = $("#startDate-input").val().trim()
             var endDate = $("#endDate-input").val().trim()
+            var backgroundColor = $("#colorSelect").val().trim()
+
+            $("#eventTitle-input").val("");
+            $("#startDate-input").val("");
+            $("#endDate-input").val("");
+            $("#colorSelect").val("");
 
             $('#eventModal').modal('hide');
 
             database.ref('/events').push({
                 event: eventTitle,
                 startDate: startDate,
-                endDate: endDate
-
+                endDate: endDate,
+                eventColor: backgroundColor
             })
         })
     })
@@ -58,8 +65,9 @@ $(document).ready(function () {
         var event = snapshot.val().event;
         var start = snapshot.val().startDate;
         var end = snapshot.val().endDate;
+        var color = snapshot.val().eventColor
 
-        $("#calendar").fullCalendar('renderEvent', { title: event, start: start, end: end }, true);
+        $("#calendar").fullCalendar('renderEvent', { title: event, start: start, end: end, backgroundColor: color }, true);
         $("#calendar").fullCalendar('refetchEvents')
     })
 
