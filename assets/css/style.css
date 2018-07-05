@@ -1,10 +1,7 @@
 
 /* Global CSS */
-nav {
+.navstuff {
   display: none;
-}
-body {
-    height: 100%;
 }
 
 /* Homepage CSS */
@@ -23,6 +20,8 @@ body {
     max-width: 900px;
     margin: 40px auto;
 }
+.formstuff {
+=======
 
 html, body {
   font-family: 'Roboto', 'Helvetica', sans-serif;
@@ -95,20 +94,13 @@ form {
   display: block;
   text-align: center;
 }
-pre {
+.prestuff {
   
   line-height: 18px;
 }
-code {
+.codestuff {
   white-space: pre-wrap;
   word-break: break-all;
-}
-h3 {
-  background: url('https://d30y9cdsu7xlg0.cloudfront.net/png/174505-200.png') no-repeat;
-  background-size: 40px;
-  padding-left: 50px;
-  color: white;
-  margin-left: 235px;
 }
 #verification-code-form {
   display:none;
