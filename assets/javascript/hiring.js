@@ -1,14 +1,14 @@
 // $(function () {
-    var config = {
-        apiKey: "AIzaSyDjOICOB9Zfd3_Kun3Hc_x1JNtRNSrV7QI",
-        authDomain: "mangenda-f7411.firebaseapp.com",
-        databaseURL: "https://mangenda-f7411.firebaseio.com",
-        projectId: "mangenda-f7411",
-        storageBucket: "mangenda-f7411.appspot.com",
-        messagingSenderId: "75994685936"
-      };
-      firebase.initializeApp(config);
-      database = firebase.database();
+var config = {
+    apiKey: "AIzaSyDjOICOB9Zfd3_Kun3Hc_x1JNtRNSrV7QI",
+    authDomain: "mangenda-f7411.firebaseapp.com",
+    databaseURL: "https://mangenda-f7411.firebaseio.com",
+    projectId: "mangenda-f7411",
+    storageBucket: "mangenda-f7411.appspot.com",
+    messagingSenderId: "75994685936"
+};
+firebase.initializeApp(config);
+database = firebase.database();
 
 
 var start;
@@ -37,7 +37,7 @@ function skillSearch() {
         form.append(formGroup)
 
         //input for skill
-        var input = $("<input>").attr({class: "form-control ml-2 mr-2",id: "query",type: "text"})
+        var input = $("<input>").attr({ class: "form-control ml-2 mr-2", id: "query", type: "text" })
         var formGroup = $("<div>").attr("class", "form group")
         formGroup.append(input)
         form.append(formGroup)
@@ -66,8 +66,8 @@ function skillSearch() {
             class: "btn btn-primary",
             type: "submit",
             id: "search"
-        })
-        button.append("Submit")
+        }).append("Submit")
+
         var formGroup = $("<div>").attr("class", "form group")
         formGroup.append(button)
         form.append(formGroup)
@@ -75,12 +75,49 @@ function skillSearch() {
         // $('*[aria-labelledby="skills-tab"]').prepend(skillsForm)
         $("#skills > .container").prepend((skillsForm))
 
-        
+
 
     }
-    var results = $("<div>").attr("id", "results")
-    $(".container").append(results)
+    
 
+
+}
+
+function salaryAnalysis(){
+    $(".container").empty();
+
+    var salaryForm = $("<div>").attr({
+        id: "salaryForm",
+        class: "text-center mt-2",
+    })
+    var form = $("<form>")
+    form.attr({
+        class: "form-inline",
+    })
+    //label for skill
+    var label = $("<label>")
+    label.append("Search for a postion:")
+    var formGroup = $("<div>").attr("class", "form group")
+    formGroup.append(label)
+    form.append(formGroup)
+
+    //input for skill
+    var input = $("<input>").attr({ class: "form-control ml-2 mr-2", id: "query", type: "text" })
+    var formGroup = $("<div>").attr("class", "form group")
+    formGroup.append(input)
+    form.append(formGroup)
+    var button = $("<button>")
+        button.attr({
+            class: "btn btn-primary",
+            type: "submit",
+            id: "searchSalaries"
+        }).append("Submit")
+        formGroup.append(button)
+    salaryForm.append(form)
+    $("#salary > .container").append(salaryForm)
+    
+
+    
 
 }
 
@@ -89,19 +126,66 @@ $(document).on("click", "#search", function (event) {
 
     $("#noResults").remove()
     $(".container").append(loading)
-    $("#results").empty()
+    // $(".container").empty()
     var query = $('#query').val()
     var location = $("#location").val()
     start = 0;
     callIndeed(query, location, start)
 })
 
+$(document).on("click", "#searchSalaries", function (event) {
+    event.preventDefault();
+    var query = $('#query').val()
+    callMDC(query)
+})
 
-    $(window).scroll(function () {
-        // console.log($(window).scrollTop());
-        // console.log($(document).height());
-        // console.log($(window).height())
-        if ($("#skillsForm").length) {
+function callMDC(query) {
+    event.preventDefault()
+    $.ajax({
+        url: "https://opendata.miamidade.gov/resource/uxti-s6ix.json",
+        method: "GET",
+        data: {
+            "$limit": 100,
+            "$$app_token": "qkEdULtaZjOJu5obC0ygJ1KMT"
+            , "$q": query
+
+        }
+    }).then(function (response) {
+        // console.log(response)
+        var card = $("<div>").attr("class", "card bg-dark mt-3")
+    var graph = $("<div>").attr({id: "graph", class: "m-4"})
+    card.append(graph)
+    $("#salary > .container").append(card)
+        var trace1 = {
+            x: [], //employees
+            y: [], //$$
+            mode: 'markers+text',
+            name: "salaries"
+        };
+
+        for (i = 0; i < response.length; i++) {
+            trace1.x.push(response[i].title)
+            trace1.y.push(response[i].annualsalary)
+
+
+        }
+        trace1.y.sort(function (a, b) { return a - b })
+
+        console.log(trace1.y)
+
+        var data = [trace1];
+
+        var layout = {};
+
+        Plotly.newPlot('graph', data, layout, { displayModeBar: false });
+    })
+}
+
+$(window).scroll(function () {
+    // console.log($(window).scrollTop());
+    // console.log($(document).height());
+    // console.log($(window).height())
+    if ($("#skillsForm").length) {
         if ($(window).scrollTop() == $(document).height() - $(window).height()) {
             var query = $("#query").val()
             var location = $("#location").val()
@@ -110,16 +194,16 @@ $(document).on("click", "#search", function (event) {
             callIndeed(query, location, start)
         }
     }
-    });
+});
 
 
-function callIndeed(query, location, start) {
+function callIndeed(query1, location, start) {
     $.ajax({
-        url: `https://indeedapi.herokuapp.com/?l=${location}&v=1&q=${query}&start=${start}`,
+        url: `https://indeedapi.herokuapp.com/?l=${location}&v=1&q=${query1}&start=${start}`,
         method: "GET"
     }).then(function (response) {
         console.log(response)
-        $("#loading").remove()
+        $(".container > #loading").remove()
         var datas = response.data.resumes
         // console.log(datas.length)
         if (datas.length === 0 && start > 51) {
@@ -128,16 +212,16 @@ function callIndeed(query, location, start) {
         }
         else if (datas.length === 0 && start < 51) {
             console.log(start)
-            $("#results").append(noResults)
+            $(".container").append(noResults)
         }
         else {
             for (i = 0; i < datas.length; i++) {
                 if (datas[i].skillsList.length > 0 && datas[i].firstName != "" && datas[i].lastName != "") {
                     var card = $("<div>")
-                    card.attr("class", "card float-left m-2 bg-dark ")
+                    card.attr("class", "card resume float-left m-2 bg-dark ")
                     var cardBody = $("<div>")
                     cardBody.attr({
-                        class: "card-body pt-none",
+                        class: "card-body pt-none resume-body",
                         style: "width: 18rem;"
                     })
                     cardBody.append("<p class='font-weight-light'>" + datas[i].city + "</p>")
@@ -149,8 +233,6 @@ function callIndeed(query, location, start) {
                     cardFooter.append(buttonDiv)
                     // cardBody.append("<div class='card-header text-capitalize mb-0'>" + datas[i].firstName + " " + datas[i].lastName + "</div><p class='font-weight-light'>" + datas[i].city +"</p>")
                     var list = $("<ul>")
-
-
                     for (j = 0; j < datas[i].skillsList.length; j++) {
                         if (j < 5) {
                             list.append("<li class='text-capitalize'>" + (datas[i].skillsList[j].text).toLowerCase() + " - " + datas[i].skillsList[j].monthsOfExperience + " Months </li>")
@@ -159,13 +241,13 @@ function callIndeed(query, location, start) {
                             j = datas[i].skillsList.length - 1
                             list.append("<li class='text-capitalize'> <a href='http://indeed.com" + datas[i].url + "'target='_blank'>See More...</a></li>")
                         }
-
                     }
                     cardBody.append(list)
                     card.append("<div class='card-header text-capitalize mb-0'><h3>" + datas[i].firstName + " " + datas[i].lastName + "</h3></div>")
                     card.append(cardBody)
                     card.append(cardFooter)
-                    $("#results").append(card)
+                    console.log(card)
+                    $(".container").append(card)
                 }//end of if to check theres data in all fields
             }//end of outer forloor
         }//End else
@@ -223,38 +305,76 @@ function postAJob() {
     // $(".container").append(form)
     $("#post > .container").append(form)
 
-    $('#submit').on('click',function(event){
+    $('#submit').on('click', function (event) {
         event.preventDefault();
-        
+
         //Get input info
         jobTitle = $('#jobTitle').val().trim();
         jobDescription = $('#jobDescription').val().trim();
         requirements = $('#requirements').val().trim();
         type = $('#type').val().trim();
         salary = $('#salary').val().trim();
-    
+
         //Removed input info 
         $('#jobTitle').val('');
         $('#jobDescription').val('');
         $('#requirements').val('');
         $('#type').val('');
         $('#salary').val('');
-        
-    
+
+
         database.ref('/jobs').push({
             jobTitle: jobTitle,
             jobDescription: jobDescription,
             requirements: requirements,
             type: type,
             salary: salary,
-                
-            }); 
+
         });
-    
+    });
+
+
+}
+
+function listApplicants() {
+    $(".container").empty();
+    var counter = 0;
+
+
+    database.ref('jobs/').on('child_added', function (snap) {
+        console.log(snap.val().jobTitle)
+        var card = $("<div>").attr({ class: "card mt-2 text-white bg-dark" })
+        var body = $("<div>").attr({ class: "card-body", id: snap.key })
+        var jobTitle = $("<h3>").attr("class", "card-header").append(snap.val().jobTitle)
+        var badge = $("<h4>").attr({ class: "badge badge-primary" }).append("Job Description")
+        var jobDescription = $("<p>").attr({ class: "font-italic" }).append(snap.val().jobDescription)
+        var app = $("<h4>").attr("class", "card-title").append("Applicants")
+
+        card.append(jobTitle)
+        body.append(badge)
+        body.append(jobDescription)
+        body.append(app)
+        counter++
+        database.ref('jobs/' + snap.key + '/applicants').on('child_added', function (snap) {
+            var name = snap.val().name
+            var card2 = $("<div>").attr({ class: "card applicants float-left text-dark mr-2 " })
+            var body2 = $("<div>").attr({ class: "card-body" })
+            var name = $("<h5>").attr({ class: "card-title", }).append(name)
+            body2.append(name)
+            body2.append("<p><span class='font-weight-bold'>Phone: </span>" + snap.val().phone + "</p>")
+            body2.append("<p><span class='font-weight-bold'>Email: </span><a href='mailto:" + snap.val().email + "'>" + snap.val().email + "</a></p>")
+            body2.append("<button class='btn btn-primary name='" + name + "'>Hire</button>")
+            card2.append(body2)
+            body.append(card2)
+        })
+        card.append(body)
+        $(".container").append(card)
+        console.log(counter)
+    })
+
 
 }
 
 
-    
 
 // })//End of doc ready
