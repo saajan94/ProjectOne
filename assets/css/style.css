@@ -1,5 +1,5 @@
 /* index styles*/
-#dumbassJR{
+#containerFdemo{
   margin-top: 100px;
 }
 #hi{
@@ -11,10 +11,9 @@
   margin-left: 43%;
 }
 #barNav{
-  background: green;
 }
 #work{
-  background-color: green;
+
 }
 main{
   background-color: rgb(112,128,144);
@@ -46,7 +45,6 @@ main{
 
 html, body {
   font-family: 'Roboto', 'Helvetica', sans-serif;
-  background-color: pink;
 }
 
 /* saaj Global CSS */
