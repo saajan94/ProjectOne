@@ -1,4 +1,23 @@
+/* index styles*/
+#containerFdemo{
+  margin-top: 100px;
+}
+#hi{
+  background-color: rgb(0,0,255);
+  color:rgb(176,224,230);
+  text-align: center;
+}
+#copy{
+  margin-left: 43%;
+}
+#barNav{
+}
+#work{
 
+}
+main{
+  background-color: rgb(112,128,144);
+}
 /* Global CSS */
 .navstuff {
   display: none;
@@ -21,12 +40,13 @@
     margin: 40px auto;
 }
 .formstuff {
+
   display: inline-block;
 }
 
+
 html, body {
   font-family: 'Roboto', 'Helvetica', sans-serif;
-  background-color: #f5f5f5;
 }
 
 /* saaj Global CSS */
@@ -57,9 +77,7 @@ html, body {
   text-align: center;
   color:black;
 }
-#hi{
-  text-align: center;
-}
+
 .mdl-card {
   overflow: visible;
   text-align: center;

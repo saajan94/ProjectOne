@@ -53,14 +53,14 @@
 </head>
 
 <body>
-    <div class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-header">
+    <div id="work" class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-header">
         <!-- Header section containing title -->
-        <main class="mdl-layout__content mdl-color--grey-100">
+        <main  class="mdl-layout__content">
             <div class="mdl-cell mdl-cell--12-col mdl-cell--12-col-tablet mdl-grid">
                 <!-- Container for the demo -->
-                <div class="mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-cell--12-col-tablet mdl-cell--12-col-desktop">
+                <div id="containerFdemo" class="mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-cell--12-col-tablet mdl-cell--12-col-desktop">
                     <div id="hi" class="mdl-color--light-blue-600 mdl-color-text--white">
-                        <h1 id="hi">Mangenda Dashboard</h1>
+                        <h1 >Mangenda Dashboard</h1>
                     </div>
                     <div class="container">
                         <div class="mdl-card__supporting-text mdl-color-text--grey-600">
@@ -82,6 +82,7 @@
                             <button class="btn btn-primary" id="quickstart-sign-up" name="signup">Sign Up</button>
                             <button class="mdl-button mdl-js-button mdl-button--raised" disabled id="quickstart-verify-email" name="verify-email">Send Email Verification</button>
                             <button class="btn btn-primary" id="quickstart-password-reset" name="verify-email">Send Password Reset Email</button>
+
                             <form class="formstuff">
                                 <input type="button" id="employeesbtn" class="btn btn-primary" value="Employees" onclick="window.location.href='employees.html'" />
                             </form>
@@ -91,15 +92,15 @@
                             <form class="formstuff">
                                 <input type="button" id="hiresbtn" class="btn btn-primary" value="Search New Hires" onclick="window.location.href='hiring.html'" />
                             </form>
+
                             <!-- Container where we'll display the user details -->
                             <div class="quickstart-user-details-container">
                                 <pre class="prestuff"><code class="codestuff" id="nocalendar"></code></pre>
         </main>
         </div>
         <!--Footer Area-->
-        <!--Footer Area-->
-        <nav class="navbar fixed-bottom navbar-light bg-light">
-            <a class="navbar-brand" href="#">Fixed bottom</a>
+        <nav id="footer" class="navbar fixed-bottom navbar-light bg-light">
+            <a id="copy" class="navbar-brand" href="#">&copy; Mangenda </a>
         </nav>
         </div>
 </body>
