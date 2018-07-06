@@ -178,41 +178,6 @@
               document.getElementById('quickstart-sign-in-status').textContent = "Welcome " + email;
               document.getElementById('quickstart-sign-in').textContent = 'Sign out';
 
-              // document.getElementById('quickstart-account-details').textContent = JSON.stringify(user, null, '  ');
-              // if (!emailVerified) {
-
-
-
-
-              //     //                   $(function calendardraw() {
-
-              //     // $('#nocalendar').attr('id', 'calendar');
-
-              //     // $('#calendar').fullCalendar({
-              //     //   events: [
-              //     //     {
-              //     //       title  : 'event1',
-              //     //       start  : '2018-06-25'
-              //     //     },
-              //     //     {
-              //     //       title  : 'event2',
-              //     //       start  : '2018-06-27',
-              //     //       end    : '2018-06-29'
-              //     //     },
-              //     //     {
-              //     //       title  : 'event3',
-              //     //       start  : '2018-06-09 12:30:00',
-              //     //       allDay : false // will make the time show
-              //     //     }
-              //     //   ]
-              //     // });
-
-              //     // });
-
-              //     // $("body").html("new content");
-
-
-              // }
               // [END_EXCLUDE]
           } else {
               // User is signed out.
