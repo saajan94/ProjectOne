@@ -53,54 +53,6 @@ function toggleSignIn() {
     }
 }
 
-/**
- * Handles the sign up button press. at the moment not using
- */
-// function handleSignUp() {
-//     var email = document.getElementById('email').value;
-//     var password = document.getElementById('password').value;
-//     //Email must be longer than 4 characters long
-//     if (email.length < 4) {
-//         alert('Please enter a valid email address.');
-//         return;
-//     }
-//     //Password must be longer than 4 characters long
-//     if (password.length < 4) {
-//         alert('Please enter a password longer than 4 characters.');
-//         return;
-//     }
-//     // Sign in with email and pass.
-//     // [START createwithemail]
-//     firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
-//         // Handle Errors here.
-//         var errorCode = error.code;
-//         var errorMessage = error.message;
-//         // [START_EXCLUDE]
-//         if (errorCode == 'auth/weak-password') {
-//             alert('Please input a stronger password');
-//         } else {
-//             alert(errorMessage);
-//         }
-//         console.log(error);
-//         // [END_EXCLUDE]
-//     });
-//     // [END createwithemail]
-// }
-
-/**
- * Sends an email verification to the user. not using at the moment
- */
-// function sendEmailVerification() {
-//     // [START sendemailverification]
-//     firebase.auth().currentUser.sendEmailVerification().then(function() {
-//         // Email Verification sent!
-//         // [START_EXCLUDE]
-//         alert('Email Verification Sent!');
-//         // [END_EXCLUDE]
-//     });
-//     // [END sendemailverification]
-// }
-
 function sendPasswordReset() {
     var email = document.getElementById('email').value;
     // [START sendpasswordemail]
@@ -176,10 +128,7 @@ function initApp() {
             document.getElementById("quickstart-verify-email").style.display = "none";
             document.getElementById("weatherstuff").style.display = "none";
             document.getElementById("quickstart-password-reset").style.display = "inline-block";
-
             document.getElementById("containerFdemo").style.marginTop = "100px"; 
-
-
             document.getElementById('quickstart-sign-in-status').textContent = 'Signed out';
             document.getElementById('quickstart-sign-in').textContent = 'Sign in';
             document.getElementById('quickstart-sign-in-status').textContent = "";

@@ -182,9 +182,6 @@ function callMDC(query) {
 }
 
 $(window).scroll(function () {
-    // console.log($(window).scrollTop());
-    // console.log($(document).height());
-    // console.log($(window).height())
     if ($("#skillsForm").length) {
         if ($(window).scrollTop() == $(document).height() - $(window).height()) {
             var query = $("#query").val()
