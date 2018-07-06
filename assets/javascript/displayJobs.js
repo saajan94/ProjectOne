@@ -1,6 +1,4 @@
-
 //Linking Firebase to pull jobs from
-
 $(function (){
 
   var config = {
@@ -30,7 +28,6 @@ $(function (){
     })
     //Pulling the information from FB based on the items we need to display
     var li = $("<li>").attr("class", "list-group-item list-group-item-dark").append('<span class="font-weight-bold">Tittle: </span>'+snap.val().jobTitle)
-
     var li = $("<li>").attr("class", "list-group-item list-group-item-dark").append('<h3>'+snap.val().jobTitle+'</h3>')
     ul.append(li)
     var li = $("<li>").attr("class", "list-group-item").append('<span class="font-weight-bold">Description: </span>'+ snap.val().jobDescription)
@@ -54,12 +51,11 @@ $(function (){
   
       //debugging
       console.log(snap.key)
-
     $(".row").append(card)
-  
+      //debugging
       console.log(snap.key)
-      
       })
+
       //setting up buttons for applying
       $('#apply').on('show.bs.modal', function (event) {
         var button = $(event.relatedTarget) // Button that triggered the modal
@@ -69,14 +65,14 @@ $(function (){
         modal.find('.modal-title').text('Apply for: ' + title)
         modal.find('.jobID').val(jobId)
   })
-
+  //send the information to Firebase
   $("#submitApplication").on("click", function(){
     var name = $("#name").val()
     var email = $("#email").val()
     var phone = $("#phone").val()
     var jobID = $("#jobID").val();
 
-
+    //sets the path for the information to follow
     database.ref('/jobs/' + jobID+ '/applicants').push({
       name: name,
       email: email,
