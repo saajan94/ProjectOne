@@ -1,3 +1,4 @@
+//linking of the FireBase account
 var config = {
     apiKey: "AIzaSyA_odiTnYjkXf-fWIr3SohRdN2juB4CULo",
     authDomain: "classproject-89aa4.firebaseapp.com",
@@ -8,11 +9,7 @@ var config = {
 };
 firebase.initializeApp(config);
 
-
 var database = firebase.database();
-
-
-
 
 /**
  * Handles the sign in button press.
@@ -25,10 +22,12 @@ function toggleSignIn() {
     } else {
         var email = document.getElementById('email').value;
         var password = document.getElementById('password').value;
+        //Email must be longer than 4 characters long
         if (email.length < 4) {
             alert('Please enter an email address.');
             return;
         }
+        //Password must be longer than 4 characters long
         if (password.length < 4) {
             alert('Please enter a password.');
             return;
@@ -60,10 +59,12 @@ function toggleSignIn() {
 function handleSignUp() {
     var email = document.getElementById('email').value;
     var password = document.getElementById('password').value;
+    //Email must be longer than 4 characters long
     if (email.length < 4) {
         alert('Please enter a valid email address.');
         return;
     }
+    //Password must be longer than 4 characters long
     if (password.length < 4) {
         alert('Please enter a password longer than 4 characters.');
         return;
@@ -124,17 +125,6 @@ function sendPasswordReset() {
     // [END sendpasswordemail];
 }
 
-
-
-
-
-
-
-
-
-
-
-
 /**
  * initApp handles setting up UI event listeners and registering Firebase auth listeners:
  *  - firebase.auth().onAuthStateChanged: This listener is called when the user is signed in or
@@ -167,7 +157,7 @@ function initApp() {
             document.getElementById("quickstart-sign-up").style.display = "none";
             document.getElementById("quickstart-verify-email").style.display = "none";
             document.getElementById("weatherstuff").style.display = "block";
-            document.getElementById("dumbassJR").style.marginTop = "10px";
+            document.getElementById("containerFdemo").style.marginTop = "10px";
             $('.navstuff').css('display', 'block');
           
             // $("nav").hide(0);
@@ -177,42 +167,6 @@ function initApp() {
             document.getElementById('quickstart-sign-in-status').textContent = "Welcome " + email;
             document.getElementById('quickstart-sign-in').textContent = 'Sign out';
 
-            // document.getElementById('quickstart-account-details').textContent = JSON.stringify(user, null, '  ');
-            // if (!emailVerified) {
-
-
-
-
-            //     //                   $(function calendardraw() {
-
-            //     // $('#nocalendar').attr('id', 'calendar');
-
-            //     // $('#calendar').fullCalendar({
-            //     //   events: [
-            //     //     {
-            //     //       title  : 'event1',
-            //     //       start  : '2018-06-25'
-            //     //     },
-            //     //     {
-            //     //       title  : 'event2',
-            //     //       start  : '2018-06-27',
-            //     //       end    : '2018-06-29'
-            //     //     },
-            //     //     {
-            //     //       title  : 'event3',
-            //     //       start  : '2018-06-09 12:30:00',
-            //     //       allDay : false // will make the time show
-            //     //     }
-            //     //   ]
-            //     // });
-
-            //     // });
-
-            //     // $("body").html("new content");
-
-
-            // }
-            // [END_EXCLUDE]
         } else {
             // User is signed out.
             // [START_EXCLUDE]
@@ -222,10 +176,10 @@ function initApp() {
             document.getElementById("password").style.display = "inline";
             document.getElementById("quickstart-verify-email").style.display = "none";
             document.getElementById("weatherstuff").style.display = "none";
-           document.getElementById("quickstart-sign-up").style.display = "inline-block";
-           document.getElementById("quickstart-password-reset").style.display = "inline-block";
+            document.getElementById("quickstart-sign-up").style.display = "inline-block";
+            document.getElementById("quickstart-password-reset").style.display = "inline-block";
 
-           document.getElementById("dumbassJR").style.marginTop = "100px";
+            document.getElementById("containerFdemo").style.marginTop = "100px"; 
 
 
             document.getElementById('quickstart-sign-in-status').textContent = 'Signed out';
