@@ -20,11 +20,13 @@ $(document).ready(function() {
     $("#saveEmployee").on("click", function(event) {
         event.preventDefault();
 
+        // Captures values entered into the modal fields
         var name = $("#name-input").val().trim();
         var title = $("#title-input").val().trim();
         var startDate = $("#startDate-input").val().trim();
         var monthlyRate = $("#monthlyRate-input").val().trim();
 
+        // Uploads the data acquired from the user to the Firebase database
         database.ref('/employees').push({
             name: name,
             jobTitle: title,
@@ -32,6 +34,7 @@ $(document).ready(function() {
             monthlyRate: monthlyRate
         })
 
+        // Empties modal fields upon submission
         $("#name-input").val("");
         $("#title-input").val("");
         $("#startDate-input").val("");
@@ -41,6 +44,7 @@ $(document).ready(function() {
 
     })
 
+    // Creates a Firebase event to add employees to the database
     database.ref('/employees').on("child_added", function(snapshot) {
         var employeeName = snapshot.val().name;
         var employeeTitle = snapshot.val().jobTitle;
