@@ -10,14 +10,8 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <script defer src="https://code.getmdl.io/1.1.3/material.min.js"></script>
 
-
-
-
     <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css" />
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src='assets/javascript/moment.js'></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.min.js"></script>
     <!-- Firebase App is always required and must be first -->
     <script src="https://www.gstatic.com/firebasejs/5.1.0/firebase-app.js"></script>
     <!-- Add additional services that you want to use -->
@@ -26,10 +20,8 @@
     <script src="https://www.gstatic.com/firebasejs/5.1.0/firebase-firestore.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.1.0/firebase-messaging.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.1.0/firebase-functions.js"></script>
-    <script src="assets/javascript/app.js"></script>
     <script src="assets/javascript/auth.js"></script>
     <script src="assets/javascript/weather.js"></script>
-    <script src="assets/javascript/bootstrapjs.js"></script>
 </head>
 
 <body>
@@ -73,7 +65,7 @@
                                 <div class="temp"></div>
                                 <div class="icon"></div>
                             </div>
-
+                            <p id="loginerror" class="font-weight-bold"></p>
                             <p id="loginp"></p>
                             <input class="mdl-textfield__input" style="display:inline;width:auto;" type="text" id="email" name="email" placeholder="Email" /> &nbsp;&nbsp;&nbsp;
                             <input class="mdl-textfield__input" style="display:inline;width:auto;" type="password" id="password" name="password" placeholder="Password" />
