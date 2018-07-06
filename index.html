@@ -20,6 +20,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.min.js"></script>
     <!-- Firebase App is always required and must be first -->
     <script src="https://www.gstatic.com/firebasejs/5.1.0/firebase-app.js"></script>
+    <!-- Add additional services that you want to use -->
     <script src="https://www.gstatic.com/firebasejs/5.1.0/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.1.0/firebase-database.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.1.0/firebase-firestore.js"></script>
@@ -79,19 +80,8 @@
                             <br/>
                             <br/>
                             <button disabled class="btn btn-primary" id="quickstart-sign-in" name="signin">Sign In</button>
-                            <button class="btn btn-primary" id="quickstart-sign-up" name="signup">Sign Up</button>
                             <button class="mdl-button mdl-js-button mdl-button--raised" disabled id="quickstart-verify-email" name="verify-email">Send Email Verification</button>
                             <button class="btn btn-primary" id="quickstart-password-reset" name="verify-email">Send Password Reset Email</button>
-
-                            <form class="formstuff">
-                                <input type="button" id="employeesbtn" class="btn btn-primary" value="Employees" onclick="window.location.href='employees.html'" />
-                            </form>
-                            <form class="formstuff">
-                                <input type="button" id="calendarbtn" class="btn btn-primary" value="Calendar" onclick="window.location.href='calendar.html'" />
-                            </form>
-                            <form class="formstuff">
-                                <input type="button" id="hiresbtn" class="btn btn-primary" value="Search New Hires" onclick="window.location.href='hiring.html'" />
-                            </form>
 
                             <!-- Container where we'll display the user details -->
                             <div class="quickstart-user-details-container">
