@@ -8,9 +8,7 @@ var config = {
     messagingSenderId: "386386062448"
 };
 firebase.initializeApp(config);
-
 var database = firebase.database();
-
 
 /**
  * Handles the sign in button press.

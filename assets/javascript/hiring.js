@@ -1,4 +1,4 @@
-// $(function () {
+// setting up firebase
 var config = {
     apiKey: "AIzaSyDjOICOB9Zfd3_Kun3Hc_x1JNtRNSrV7QI",
     authDomain: "mangenda-f7411.firebaseapp.com",
@@ -10,7 +10,7 @@ var config = {
 firebase.initializeApp(config);
 database = firebase.database();
 
-
+//setting up attributes for the information
 var start;
 var noResults = $('<h1 id="noResults" class="text-center display-1"><span class="sadFace">:-(</span><br> No Results Found</h1>')
 var noMoreResults = $('<h1 id="noResults" class="text-center display-1">No more results</h1>')
@@ -18,7 +18,6 @@ var loading = $('<img id="loading" class="mx-auto d-block" src="assets/images/lo
 
 function skillSearch() {
     $(".container").empty();
-
     //form creating
     if (!($("#skillsForm").length)) {
         var skillsForm = $("<div>").attr({
@@ -74,15 +73,9 @@ function skillSearch() {
         skillsForm.prepend(form)
         // $('*[aria-labelledby="skills-tab"]').prepend(skillsForm)
         $("#skills > .container").prepend((skillsForm))
-
-
-
     }
-    
-
-
 }
-
+//setting up search to compare salaries in Miami Dade
 function salaryAnalysis(){
     $(".container").empty();
 
@@ -115,15 +108,10 @@ function salaryAnalysis(){
         formGroup.append(button)
     salaryForm.append(form)
     $("#salary > .container").append(salaryForm)
-    
-
-    
-
 }
-
+//setting the up the search of the salaries
 $(document).on("click", "#search", function (event) {
     event.preventDefault();
-
     $("#noResults").remove()
     $(".container").append(loading)
     // $(".container").empty()
@@ -132,13 +120,13 @@ $(document).on("click", "#search", function (event) {
     start = 0;
     callIndeed(query, location, start)
 })
-
+//function to set up the search for the salaries from the API
 $(document).on("click", "#searchSalaries", function (event) {
     event.preventDefault();
     var query = $('#query').val()
     callMDC(query)
 })
-
+//Runs the actual search for the info from the API
 function callMDC(query) {
     event.preventDefault()
     $.ajax({
@@ -148,7 +136,6 @@ function callMDC(query) {
             "$limit": 100,
             "$$app_token": "qkEdULtaZjOJu5obC0ygJ1KMT"
             , "$q": query
-
         }
     }).then(function (response) {
         // console.log(response)
@@ -162,7 +149,7 @@ function callMDC(query) {
             mode: 'markers+text',
             name: "salaries"
         };
-
+        //for loop to set up the line chart
         for (i = 0; i < response.length; i++) {
             trace1.x.push(response[i].title)
             trace1.y.push(response[i].annualsalary)
@@ -170,13 +157,9 @@ function callMDC(query) {
 
         }
         trace1.y.sort(function (a, b) { return a - b })
-
         console.log(trace1.y)
-
         var data = [trace1];
-
         var layout = {};
-
         Plotly.newPlot('graph', data, layout, { displayModeBar: false });
     })
 }
@@ -192,7 +175,6 @@ $(window).scroll(function () {
         }
     }
 });
-
 
 function callIndeed(query1, location, start) {
     $.ajax({
