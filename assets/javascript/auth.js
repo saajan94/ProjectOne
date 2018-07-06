@@ -11,6 +11,7 @@ firebase.initializeApp(config);
 
 var database = firebase.database();
 
+
 /**
  * Handles the sign in button press.
  */
@@ -24,12 +25,12 @@ function toggleSignIn() {
         var password = document.getElementById('password').value;
         //Email must be longer than 4 characters long
         if (email.length < 4) {
-            alert('Please enter an email address.');
+            document.getElementById('loginerror').textContent = 'Please enter an email address.';
             return;
         }
         //Password must be longer than 4 characters long
         if (password.length < 4) {
-            alert('Please enter a password.');
+            document.getElementById('loginerror').textContent = 'Please enter a valid password.';
             return;
         }
         // Sign in with email and pass.
@@ -40,9 +41,9 @@ function toggleSignIn() {
             var errorMessage = error.message;
             // [START_EXCLUDE]
             if (errorCode === 'auth/wrong-password') {
-                alert('Wrong password.');
+                document.getElementById('loginerror').textContent = 'Wrong Password';
             } else {
-                alert(errorMessage);
+                document.getElementById('loginerror').textContent = errorMessage;
             }
             console.log(error);
             document.getElementById('quickstart-sign-in').disabled = false;
@@ -50,56 +51,55 @@ function toggleSignIn() {
         });
         // [END authwithemail]
     }
-    document.getElementById('quickstart-sign-in').disabled = true;
 }
 
 /**
- * Handles the sign up button press.
+ * Handles the sign up button press. at the moment not using
  */
-function handleSignUp() {
-    var email = document.getElementById('email').value;
-    var password = document.getElementById('password').value;
-    //Email must be longer than 4 characters long
-    if (email.length < 4) {
-        alert('Please enter a valid email address.');
-        return;
-    }
-    //Password must be longer than 4 characters long
-    if (password.length < 4) {
-        alert('Please enter a password longer than 4 characters.');
-        return;
-    }
-    // Sign in with email and pass.
-    // [START createwithemail]
-    firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
-        // Handle Errors here.
-        var errorCode = error.code;
-        var errorMessage = error.message;
-        // [START_EXCLUDE]
-        if (errorCode == 'auth/weak-password') {
-            alert('Please input a stronger password');
-        } else {
-            alert(errorMessage);
-        }
-        console.log(error);
-        // [END_EXCLUDE]
-    });
-    // [END createwithemail]
-}
+// function handleSignUp() {
+//     var email = document.getElementById('email').value;
+//     var password = document.getElementById('password').value;
+//     //Email must be longer than 4 characters long
+//     if (email.length < 4) {
+//         alert('Please enter a valid email address.');
+//         return;
+//     }
+//     //Password must be longer than 4 characters long
+//     if (password.length < 4) {
+//         alert('Please enter a password longer than 4 characters.');
+//         return;
+//     }
+//     // Sign in with email and pass.
+//     // [START createwithemail]
+//     firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
+//         // Handle Errors here.
+//         var errorCode = error.code;
+//         var errorMessage = error.message;
+//         // [START_EXCLUDE]
+//         if (errorCode == 'auth/weak-password') {
+//             alert('Please input a stronger password');
+//         } else {
+//             alert(errorMessage);
+//         }
+//         console.log(error);
+//         // [END_EXCLUDE]
+//     });
+//     // [END createwithemail]
+// }
 
 /**
- * Sends an email verification to the user.
+ * Sends an email verification to the user. not using at the moment
  */
-function sendEmailVerification() {
-    // [START sendemailverification]
-    firebase.auth().currentUser.sendEmailVerification().then(function() {
-        // Email Verification sent!
-        // [START_EXCLUDE]
-        alert('Email Verification Sent!');
-        // [END_EXCLUDE]
-    });
-    // [END sendemailverification]
-}
+// function sendEmailVerification() {
+//     // [START sendemailverification]
+//     firebase.auth().currentUser.sendEmailVerification().then(function() {
+//         // Email Verification sent!
+//         // [START_EXCLUDE]
+//         alert('Email Verification Sent!');
+//         // [END_EXCLUDE]
+//     });
+//     // [END sendemailverification]
+// }
 
 function sendPasswordReset() {
     var email = document.getElementById('email').value;
@@ -154,11 +154,10 @@ function initApp() {
             document.getElementById("email").style.display = "none";
             document.getElementById("password").style.display = "none";
             document.getElementById("loginp").style.display = "inline-block";
-            document.getElementById("quickstart-sign-up").style.display = "none";
             document.getElementById("quickstart-verify-email").style.display = "none";
             document.getElementById("weatherstuff").style.display = "block";
             document.getElementById("containerFdemo").style.marginTop = "10px";
-            $('.navstuff').css('display', 'block');
+            $('.navbar').css('display', 'flex');
           
             // $("nav").hide(0);
 
@@ -176,7 +175,6 @@ function initApp() {
             document.getElementById("password").style.display = "inline";
             document.getElementById("quickstart-verify-email").style.display = "none";
             document.getElementById("weatherstuff").style.display = "none";
-            document.getElementById("quickstart-sign-up").style.display = "inline-block";
             document.getElementById("quickstart-password-reset").style.display = "inline-block";
 
             document.getElementById("containerFdemo").style.marginTop = "100px"; 
@@ -185,7 +183,7 @@ function initApp() {
             document.getElementById('quickstart-sign-in-status').textContent = 'Signed out';
             document.getElementById('quickstart-sign-in').textContent = 'Sign in';
             document.getElementById('quickstart-sign-in-status').textContent = "";
-            $('.navstuff').css('display', 'none');
+            document.getElementById("navbarNav").style.display = "none";
             $("#calendar").empty();
             $('#calendar').attr('id', 'nocalendar');
             // [END_EXCLUDE]
@@ -197,20 +195,8 @@ function initApp() {
     // [END authstatelistener]
 
 
-
-
-
-
-
-
-
-
-
-
-
     document.getElementById('quickstart-sign-in').addEventListener('click', toggleSignIn, false);
-    document.getElementById('quickstart-sign-up').addEventListener('click', handleSignUp, false);
-    document.getElementById('quickstart-verify-email').addEventListener('click', sendEmailVerification, false);
+    // document.getElementById('quickstart-verify-email').addEventListener('click', sendEmailVerification, false);
     document.getElementById('quickstart-password-reset').addEventListener('click', sendPasswordReset, false);
 }
 

@@ -1,4 +1,6 @@
+
 //Linking Firebase to pull jobs from
+
 $(function (){
 
   var config = {
@@ -28,6 +30,8 @@ $(function (){
     })
     //Pulling the information from FB based on the items we need to display
     var li = $("<li>").attr("class", "list-group-item list-group-item-dark").append('<span class="font-weight-bold">Tittle: </span>'+snap.val().jobTitle)
+
+    var li = $("<li>").attr("class", "list-group-item list-group-item-dark").append('<h3>'+snap.val().jobTitle+'</h3>')
     ul.append(li)
     var li = $("<li>").attr("class", "list-group-item").append('<span class="font-weight-bold">Description: </span>'+ snap.val().jobDescription)
     ul.append(li)
@@ -35,7 +39,7 @@ $(function (){
     ul.append(li)
     var li = $("<li>").attr("class", "list-group-item").append('<span class="font-weight-bold">Type : </span>'+ snap.val().type)
     ul.append(li)
-    var li = $("<li>").attr("class", "list-group-item").append('<span class="font-weight-bold">Salary: </span>'+ snap.val().salary)
+    var li = $("<li>").attr("class", "list-group-item").append('<span class="font-weight-bold">Salary: </span>$'+ snap.val().salary)
     ul.append(li)
     var title = snap.val().jobTitle
     //Adding the information how we want it to be displayed 
@@ -51,6 +55,9 @@ $(function (){
       //debugging
       console.log(snap.key)
 
+    $(".row").append(card)
+  
+      console.log(snap.key)
       
       })
       //setting up buttons for applying
@@ -60,6 +67,23 @@ $(function (){
         var title = button.attr('title')
         var modal = $(this)
         modal.find('.modal-title').text('Apply for: ' + title)
+        modal.find('.jobID').val(jobId)
+  })
+
+  $("#submitApplication").on("click", function(){
+    var name = $("#name").val()
+    var email = $("#email").val()
+    var phone = $("#phone").val()
+    var jobID = $("#jobID").val();
+
+
+    database.ref('/jobs/' + jobID+ '/applicants').push({
+      name: name,
+      email: email,
+      phone: phone
+    })
 
   })
+
+
 })

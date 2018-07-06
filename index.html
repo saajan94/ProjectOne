@@ -10,14 +10,8 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <script defer src="https://code.getmdl.io/1.1.3/material.min.js"></script>
 
-
-
-
     <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css" />
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src='assets/javascript/moment.js'></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.min.js"></script>
     <!-- Firebase App is always required and must be first -->
     <script src="https://www.gstatic.com/firebasejs/5.1.0/firebase-app.js"></script>
     <!-- Add additional services that you want to use -->
@@ -26,11 +20,14 @@
     <script src="https://www.gstatic.com/firebasejs/5.1.0/firebase-firestore.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.1.0/firebase-messaging.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.1.0/firebase-functions.js"></script>
-    <script src="assets/javascript/app.js"></script>
     <script src="assets/javascript/auth.js"></script>
     <script src="assets/javascript/weather.js"></script>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light navstuff">
-        <a class="navbar-brand" href="homepage.html">Mangenda</a>
+</head>
+
+<body>
+    <div id="work" class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-header">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="index.html">Mangenda</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
             aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -50,11 +47,6 @@
             </ul>
         </div>
     </nav>
-    <script src="assets/javascript/bootstrapjs.js"></script>
-</head>
-
-<body>
-    <div id="work" class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-header">
         <!-- Header section containing title -->
         <main  class="mdl-layout__content">
             <div class="mdl-cell mdl-cell--12-col mdl-cell--12-col-tablet mdl-grid">
@@ -73,17 +65,16 @@
                                 <div class="temp"></div>
                                 <div class="icon"></div>
                             </div>
-
+                            <p id="loginerror" class="font-weight-bold"></p>
                             <p id="loginp"></p>
                             <input class="mdl-textfield__input" style="display:inline;width:auto;" type="text" id="email" name="email" placeholder="Email" /> &nbsp;&nbsp;&nbsp;
                             <input class="mdl-textfield__input" style="display:inline;width:auto;" type="password" id="password" name="password" placeholder="Password" />
                             <br/>
                             <br/>
                             <button disabled class="btn btn-primary" id="quickstart-sign-in" name="signin">Sign In</button>
-                            <button class="btn btn-primary" id="quickstart-sign-up" name="signup">Sign Up</button>
                             <button class="mdl-button mdl-js-button mdl-button--raised" disabled id="quickstart-verify-email" name="verify-email">Send Email Verification</button>
                             <button class="btn btn-primary" id="quickstart-password-reset" name="verify-email">Send Password Reset Email</button>
-                            <!--Get that shit out-->
+
                             <!-- Container where we'll display the user details -->
                             <div class="quickstart-user-details-container">
                                 <pre class="prestuff"><code class="codestuff" id="nocalendar"></code></pre>

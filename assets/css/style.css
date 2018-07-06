@@ -40,8 +40,10 @@ main{
     margin: 40px auto;
 }
 .formstuff {
+
   display: inline-block;
 }
+
 
 html, body {
   font-family: 'Roboto', 'Helvetica', sans-serif;
@@ -143,4 +145,8 @@ html, body {
 
 .sadFace {
   font-size: 4.0 em;
+}
+
+.navbar {
+  display: none;
 }

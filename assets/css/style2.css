@@ -1,12 +1,22 @@
-.card {
+.resume {
   width: 350px;
   height: 350px;
   /* max-height: 300px; */
   color: #FFF;
-  
 }
 
-.card-body{
+body{
+  /* background: url("aseets/images/bg.png"); */
+  /* background: url('../images/logo.jpg'); */
+  background-repeat: no-repeat;
+
+}
+
+.applicants{
+  width: 350px;
+}
+
+.resume-body{
   overflow-y: hidden;
   overflow-x: none;
   padding: 0 1.25rem;
