@@ -154,7 +154,6 @@ function initApp() {
             document.getElementById("email").style.display = "none";
             document.getElementById("password").style.display = "none";
             document.getElementById("loginp").style.display = "inline-block";
-            document.getElementById("quickstart-sign-up").style.display = "none";
             document.getElementById("quickstart-verify-email").style.display = "none";
             document.getElementById("weatherstuff").style.display = "block";
             document.getElementById("containerFdemo").style.marginTop = "10px";
@@ -176,7 +175,6 @@ function initApp() {
             document.getElementById("password").style.display = "inline";
             document.getElementById("quickstart-verify-email").style.display = "none";
             document.getElementById("weatherstuff").style.display = "none";
-            document.getElementById("quickstart-sign-up").style.display = "inline-block";
             document.getElementById("quickstart-password-reset").style.display = "inline-block";
 
             document.getElementById("containerFdemo").style.marginTop = "100px"; 
@@ -197,19 +195,7 @@ function initApp() {
     // [END authstatelistener]
 
 
-
-
-
-
-
-
-
-
-
-
-
     document.getElementById('quickstart-sign-in').addEventListener('click', toggleSignIn, false);
-    document.getElementById('quickstart-sign-up').addEventListener('click', handleSignUp, false);
     document.getElementById('quickstart-verify-email').addEventListener('click', sendEmailVerification, false);
     document.getElementById('quickstart-password-reset').addEventListener('click', sendPasswordReset, false);
 }
