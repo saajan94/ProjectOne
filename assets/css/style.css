@@ -1,3 +1,18 @@
+/* index styles*/
+#containerFdemo{
+  margin-top: 100px;
+}
+#hi{
+  background-color: rgb(0,0,255);
+  color:rgb(176,224,230);
+  text-align: center;
+}
+#copy{
+  margin-left: 43%;
+}
+main{
+  background-color: rgb(112,128,144);
+}
 
 /* Global CSS */
 .navstuff {
@@ -5,7 +20,6 @@
 }
 
 /* Homepage CSS */
-
 #mainpageImage {
     width: 100%;
     display: block;
@@ -15,7 +29,6 @@
 }
 
 /* Calendar CSS */
-
 #calendar {
     max-width: 900px;
     margin: 40px auto;
@@ -23,21 +36,17 @@
 .formstuff {
   display: inline-block;
 }
-
 html, body {
   font-family: 'Roboto', 'Helvetica', sans-serif;
-  background-color: #f5f5f5;
+  background-color: rgb(112,128,144);
 }
-
-/* saaj Global CSS */
-
-/*body {
-     background: linear-gradient(to right,#32C487 ,#6C337D ); 
-    height: 100%;
-}*/
-
+body{
+  background-color: rgb(112,128,144)!important;
+}
+#employeeCon{
+  background-color: rgb(112,128,144);
+}
 /* Homepage CSS */
-
 #mainpageImage {
     width: 100%;
     display: block;
@@ -46,19 +55,11 @@ html, body {
     margin-right: auto;
 }
 
-/* Calendar CSS */
-
-#calendar {
-    max-width: 900px;
-    margin: 40px auto;
-}
+/* login and Opening Screen CSS */
 .weatherstuff {
   display: block;
   text-align: center;
   color:black;
-}
-#hi{
-  text-align: center;
 }
 .mdl-card {
   overflow: visible;
@@ -85,7 +86,6 @@ html, body {
   text-align: center;
 }
 .prestuff {
-  
   line-height: 18px;
 }
 .codestuff {
@@ -116,15 +116,18 @@ html, body {
   height: 350px;
   /* max-height: 300px; */
   color: #FFF;
-  
 }
-
+#view{
+  background-color: rgb(112,128,144);
+}
 .card-body{
   overflow-y: hidden;
   overflow-x: none;
   padding: 0 1.25rem;
 }
-
 .sadFace {
   font-size: 4.0 em;
+}
+.navbar {
+  display: none;
 }

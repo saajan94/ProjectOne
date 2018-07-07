@@ -8,43 +8,53 @@ var config = {
     messagingSenderId: "789722548155"
 };
 firebase.initializeApp(config);
-
 var database = firebase.database();
 
+//Adds the employees to the html
 var employeeCount = 0;
 $(document).ready(function() {
     $("#addEmployee").on("click", function() {
         $("#employeeModal").show()
     })
-
+    //Saves the employee information and pushes it to firebase
     $("#saveEmployee").on("click", function(event) {
         event.preventDefault();
-
+      
         // Captures values entered into the modal fields
         var name = $("#name-input").val().trim();
         var title = $("#title-input").val().trim();
         var startDate = $("#startDate-input").val().trim();
         var monthlyRate = $("#monthlyRate-input").val().trim();
 
+
         // Uploads the data acquired from the user to the Firebase database
+
+        //Path for the information to follow
+
         database.ref('/employees').push({
             name: name,
             jobTitle: title,
             startDate: startDate,
             monthlyRate: monthlyRate
         })
-
+      
         // Empties modal fields upon submission
+
+        //Information collected in firebase
+      
         $("#name-input").val("");
         $("#title-input").val("");
         $("#startDate-input").val("");
         $("#monthlyRate-input").val("");
-
         $('#employeeModal').modal('hide');
 
     })
 
+
     // Creates a Firebase event to add employees to the database
+
+    //Pulling info from firebase to put on html
+  
     database.ref('/employees').on("child_added", function(snapshot) {
         var employeeName = snapshot.val().name;
         var employeeTitle = snapshot.val().jobTitle;

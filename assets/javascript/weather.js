@@ -10,8 +10,6 @@ var queryURL = "https://api.openweathermap.org/data/2.5/weather?" +
 // We store all of the retrieved data inside of an object called "response"
 .then(function(response) {
 
-
-  
     // Transfer content to HTML
     var image = response.weather[0].icon;
 

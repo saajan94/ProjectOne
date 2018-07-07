@@ -1,17 +1,29 @@
-.card {
+/*
+CSS for the employee search
+*/
+.resume {
   width: 350px;
   height: 350px;
   /* max-height: 300px; */
   color: #FFF;
-  
 }
-
-.card-body{
+body{
+  background-color: rgb(112,128,144);
+}
+#view{
+  background-color: rgb(112,128,144);
+}
+.applicants{
+  width: 350px;
+}
+.resume-body{
   overflow-y: hidden;
   overflow-x: none;
   padding: 0 1.25rem;
 }
-
 .sadFace {
   font-size: 4.0 em;
+}
+#home-tab, #contact-tab, #profile-tab{
+  background-color: rgb(176,224,230);
 }

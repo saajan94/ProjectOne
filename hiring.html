@@ -2,9 +2,6 @@
 <html lang="en">
 
 <head>
-    <script>
-        console.log(user)    
-    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -16,13 +13,14 @@
         crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
-        <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
     <script src="assets/javascript/hiring.js"></script>
-    <title>Document</title>
+    <title>Hiring</title>
 
 </head>
 
-<body>
+<body onload="listApplicants()">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <a class="navbar-brand" href="index.html">Mangenda</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
@@ -46,32 +44,41 @@
     </nav>
     <ul class="nav nav-tabs" id="myTab" role="tablist">
         <li class="nav-item">
-            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Hiring Portal</a>
+            <a class="nav-link active" id="contact-tab" data-toggle="tab" href="#view" onClick="listApplicants()" role="tab" aria-selected="false">View Applicants</a>
         </li>
         <li class="nav-item">
             <a class="nav-link" id="profile-tab" data-toggle="tab" href="#skills" onClick="skillSearch()" role="tab" aria-controls="profile"
-                aria-selected="false">Skill Search <span class="badge badge-secondary">New</span></a> 
+                aria-selected="false">Skill Search
+                <span class="badge badge-secondary">New</span>
+            </a>
         </li>
         <li class="nav-item">
             <a class="nav-link" id="contact-tab" data-toggle="tab" href="#post" onClick="postAJob()" role="tab" aria-controls="contact"
                 aria-selected="false">Post a Job</a>
         </li>
         <li class="nav-item">
-                <a class="nav-link" id="contact-tab" href="jobs.html" target="_blank"role="tab" aria-selected="false">Job Postings</a>
-            </li>
+            <a class="nav-link" id="contact-tab" href="jobs.html" target="_blank" role="tab" aria-selected="false">Job Postings</a>
+        </li>
         <li class="nav-item">
-            <a class="nav-link" id="contact-tab" data-toggle="tab" href="#view" role="tab" aria-selected="false">View Applicants</a>
+            <a class="nav-link" id="home-tab" data-toggle="tab" href="#salary" onClick="salaryAnalysis()" role="tab" aria-controls="salary"
+                aria-selected="true">Salary Analysis</a>
         </li>
     </ul>
     <div class="tab-content" id="myTabContent">
-        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="hiringHome-tab">home</div>
-        <div class="tab-pane fade" id="skills" role="tabpanel" aria-labelledby="skill-tab">
+        <div class="tab-pane fade show active" id="view" role="tabpanel" aria-labelledby="viewApplicants-tab">
             <div class="container mt-3"></div>
         </div>
+
+        <div class="tab-pane fade" id="skills" role="tabpanel" aria-labelledby="skill-tab">
+                <div class="container mt-3"></div>
+            </div>
         <div class="tab-pane fade" id="post" role="tabpanel" aria-labelledby="post-tab">
             <div class="container mt-3"></div>
         </div>
-        <div class="tab-pane fade" id="view" role="tabpanel" aria-labelledby="viewApplicants-tab">view</div>
+        <div class="tab-pane fade" id="salary" role="tabpanel" aria-labelledby="salary-tab">
+            <div class="container mt-3"></div>
+        </div>
+
     </div>
 </body>
 
